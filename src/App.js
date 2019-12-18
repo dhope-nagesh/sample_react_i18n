@@ -1,26 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// the hook
+import { useTranslation } from 'react-i18next';
+
+export default () => {
+  const { t, i18n } = useTranslation();
+  return <div>
+    <h1>{t('Welcome to React')}</h1>
+    <select onChange={(e) => { i18n.changeLanguage(e.target.value) }}>
+      <option value="en">English</option>
+      <option value="cn">Chinese</option>
+    </select>
+  </div>
 }
-
-export default App;
